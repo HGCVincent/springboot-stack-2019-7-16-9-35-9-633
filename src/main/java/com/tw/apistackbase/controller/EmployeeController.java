@@ -28,7 +28,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/employee/{id}")
-    public Employee findEmployeeById(@PathVariable String id){
+    public Employee findEmployeeById(@PathVariable int id){
         return employeeService.getEmployeeById(id);
     }
 
@@ -37,10 +37,10 @@ public class EmployeeController {
         return  employeeService.getEmployeesByGender(gender);
     }
 
-//    @GetMapping("/employees", params={"page","pagesize"})
-//    public List<Employee> findEmployeeByPageAndPageSize(@PathParam int page,@PathParam int pageSize){
-//
-//    }
+    @GetMapping("/employees/{page}/{pageSize}")
+    public List<Employee> findEmployeeByPageAndPageSize(@PathVariable int page,@PathVariable int pageSize){
+        return employeeService.getEmployeesByPageQuery(page, pageSize);
+    }
 
 
     @PostMapping("/employees")
@@ -54,7 +54,7 @@ public class EmployeeController {
     }
 
     @DeleteMapping("/employees/{employId}")
-    public void deleteEmployeeById(@PathVariable String employId){
+    public void deleteEmployeeById(@PathVariable int employId){
         employeeService.deleteEmployee(employId);
     }
 }

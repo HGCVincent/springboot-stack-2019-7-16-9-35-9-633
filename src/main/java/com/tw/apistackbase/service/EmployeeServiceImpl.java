@@ -19,7 +19,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public Employee getEmployeeById(String employeeId) {
+    public Employee getEmployeeById(int employeeId) {
         return employeeRepository.getEmployeeById(employeeId);
     }
 
@@ -39,9 +39,14 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public void deleteEmployee(String employeeId) {
+    public void deleteEmployee(int employeeId) {
         employeeRepository.delete(employeeId);
 
+    }
+
+    @Override
+    public List<Employee> getEmployeesByPageQuery(int page, int pageSize) {
+        return employeeRepository.getEmployeesByPageQuery(page,pageSize);
     }
 
 }

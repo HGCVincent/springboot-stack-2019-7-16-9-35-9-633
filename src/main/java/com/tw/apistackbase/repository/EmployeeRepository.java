@@ -11,15 +11,15 @@ import java.util.stream.Collectors;
 
 @Repository
 public class EmployeeRepository {
-    private final static Map<String, Employee> employees = new HashMap<String, Employee>();
+    private final static Map<Integer, Employee> employees = new HashMap<Integer, Employee>();
 
     static {
-        employees.put("1",createEmployee("1","alibaba1",21,"female",8000));
-        employees.put("2",createEmployee("2","tengxun1",22,"male",9000));
-        employees.put("3",createEmployee("3","baidu1",22,"male",10000));
+        employees.put(1,createEmployee(1,"alibaba1",21,"female",8000));
+        employees.put(2,createEmployee(2,"tengxun1",22,"male",9000));
+        employees.put(3,createEmployee(3,"baidu1",22,"male",10000));
     }
 
-    static public Employee createEmployee(String id,String name,int age,String gender,double salary){
+    static public Employee createEmployee(int id,String name,int age,String gender,double salary){
         Employee employee = new Employee();
         employee.setId(id);
         employee.setName(name);
@@ -33,7 +33,7 @@ public class EmployeeRepository {
         return employees.values().stream().collect(Collectors.toList());
     }
 
-    public Employee getEmployeeById(String employeeId) {
+    public Employee getEmployeeById(int employeeId) {
         return employees.get(employeeId);
     }
 
@@ -49,7 +49,12 @@ public class EmployeeRepository {
         employees.put(employee.getId(),employee);
     }
 
-    public void delete(String employeeId) {
+    public void delete(int employeeId) {
         employees.remove(employeeId);
+    }
+
+    public List<Employee> getEmployeesByPageQuery(int page, int pageSize) {
+        List<Employee> employeeList = employees.values().stream().collect(Collectors.toList());
+        return employeeList.subList((page - 1) * pageSize, page * pageSize);
     }
 }

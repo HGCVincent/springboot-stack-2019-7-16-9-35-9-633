@@ -16,7 +16,7 @@ public class CompanyRepository {
         Employee employee = new Employee();
         employee.setName("alibaba1");
         employee.setAge(21);
-        employee.setId("123");
+        employee.setId(123);
         employee.setSalary(9000);
         List<Employee> employees = new ArrayList<>();
         employees.add(employee);

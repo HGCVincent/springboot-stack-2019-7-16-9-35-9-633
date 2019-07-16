@@ -8,15 +8,17 @@ import java.util.List;
 
 public interface EmployeeService {
 
-    public List<Employee> getAll();
+    List<Employee> getAll();
 
-    public Employee getEmployeeById(String id);
+    Employee getEmployeeById(int id);
 
-    public List<Employee> getEmployeesByGender(String gender);
+    List<Employee> getEmployeesByGender(String gender);
 
-    public void addEmployee(Employee employee);
+    void addEmployee(Employee employee);
 
-    public void updateEmployee(Employee employee);
+    void updateEmployee(Employee employee);
 
-    public void deleteEmployee(String employeeId);
+    void deleteEmployee(int employeeId);
+
+    List<Employee> getEmployeesByPageQuery(int page, int pageSize);
 }
