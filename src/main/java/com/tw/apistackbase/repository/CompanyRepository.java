@@ -50,4 +50,9 @@ public class CompanyRepository {
     public void deleteCompanyEmployee(String companyName) {
         companies.get(companyName).getEmployees().clear();
     }
+
+    public List<Company> getCompaniesByPageQuery(int page, int pageSize) {
+        List<Company> companyList = companies.values().stream().collect(Collectors.toList());
+        return companyList.subList((page - 1) * pageSize, page * pageSize);
+    }
 }

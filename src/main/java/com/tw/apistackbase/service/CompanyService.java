@@ -20,4 +20,5 @@ public interface CompanyService {
 
     public void deleteAllEmployees(String companyName);
 
+    List<Company> getCompaniesByPageQuery(int page,int pageSize);
 }

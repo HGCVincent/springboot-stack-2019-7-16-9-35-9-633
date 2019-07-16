@@ -43,4 +43,9 @@ public class CompanyServiceImpl implements CompanyService {
         companyRepository.deleteCompanyEmployee(companyName);
     }
 
+    @Override
+    public List<Company> getCompaniesByPageQuery(int page, int pageSize) {
+        return companyRepository.getCompaniesByPageQuery(page,pageSize);
+    }
+
 }

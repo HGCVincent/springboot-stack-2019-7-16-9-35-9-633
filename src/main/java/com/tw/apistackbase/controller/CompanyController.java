@@ -39,4 +39,9 @@ public class CompanyController {
     public void deleteCompanyEmployees(@PathVariable String companyName){
         companyService.deleteAllEmployees(companyName);
     }
+
+    @GetMapping("/companies/{page}/{pageSize}")
+    public List<Company> findCompanyByPageQuery(@PathVariable int page, @PathVariable int pageSize){
+        return companyService.getCompaniesByPageQuery(page,pageSize);
+    }
 }
