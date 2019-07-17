@@ -25,6 +25,7 @@ public class CompanyRepository {
             employee.setId(i);
             employee.setName(name + i);
             employee.setSalary(9000);
+            employee.setGender("male");
             employees.add(employee);
         }
         company.setEmployees(employees);
