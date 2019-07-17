@@ -13,18 +13,20 @@ public class CompanyRepository {
     private final static Map<String, Company> companies = new HashMap<>();
 
     static{
-        Employee employee = new Employee();
-        employee.setName("alibaba1");
-        employee.setAge(21);
-        employee.setId(123);
-        employee.setSalary(9000);
-        List<Employee> employees = new ArrayList<>();
-        employees.add(employee);
-        companies.put("alibaba",createCompany("alibaba",employees));
+        companies.put("alibaba",createCompany("alibaba"));
+        companies.put("tengxun",createCompany("tengxun"));
     }
 
-    private static Company createCompany(String name,List<Employee> employees) {
+    private static Company createCompany(String name) {
         Company company = new Company();
+        List<Employee> employees = new ArrayList<>();
+        for (int i = 0; i<10; i++){
+            Employee employee = new Employee();
+            employee.setId(i);
+            employee.setName(name + i);
+            employee.setSalary(9000);
+            employees.add(employee);
+        }
         company.setEmployees(employees);
         company.setCompanyName(name);
         company.setEmployeesNumber(company.getEmployees().size());

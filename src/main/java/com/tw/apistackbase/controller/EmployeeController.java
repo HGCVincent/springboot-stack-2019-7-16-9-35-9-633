@@ -14,13 +14,6 @@ public class EmployeeController {
 
     @Resource
     EmployeeServiceImpl employeeService;
-//    GET       /employees    #obtain employee list
-//    GET       /employees/1  # obtain a certain specific employee
-//    GET       /employees?page=1&pageSize=5  #Page query, page equals 1, pageSize equals 5
-//    GET       /employees?gender=male   #screen all male employees
-//    POST      /employees    # add an employee
-//    PUT       /employees/1  #update an employee
-//    DELETE    /employees/1  #delete an employee
 
     @GetMapping("/employees")
     public List<Employee> findAllEmployees(){
@@ -32,13 +25,13 @@ public class EmployeeController {
         return employeeService.getEmployeeById(id);
     }
 
-    @GetMapping("/employees/{gender}")
-    public List<Employee> findEmployeeByGender(@PathVariable String gender){
+    @GetMapping(value = "/employees",params = {"gender"})
+    public List<Employee> findEmployeeByGender(@RequestParam String gender){
         return  employeeService.getEmployeesByGender(gender);
     }
 
-    @GetMapping("/employees/{page}/{pageSize}")
-    public List<Employee> findEmployeeByPageAndPageSize(@PathVariable int page,@PathVariable int pageSize){
+    @GetMapping(value = "/employees",params = {"page","pageSize"})
+    public List<Employee> findEmployeeByPageAndPageSize(@RequestParam int page,@RequestParam int pageSize){
         return employeeService.getEmployeesByPageQuery(page, pageSize);
     }
 

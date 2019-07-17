@@ -1,0 +1,22 @@
+2019-07-17 14:44:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE ""EMPLOYEE"" 
+""ID""[*] INT AUTO_INCREMENT PRIMARY KEY,
+""NAME"" VARCHAR(255) NOT NULL,
+""COMPANYID"" INT NOT NULL
+  "; SQL statement:
+create table `employee` 
+`id` INT auto_increment primary key,
+`name` varchar(255) not null,
+`companyId` int not null
+  [42000-192]
+2019-07-17 14:45:27 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE ""EMPLOYEE"" 
+""ID""[*] INT AUTO_INCREMENT PRIMARY KEY,
+""NAME"" VARCHAR(255) NOT NULL,
+""COMPANYID"" INT NOT NULL
+  "; SQL statement:
+CREATE TABLE `employee` 
+`id` INT auto_increment primary key,
+`name` varchar(255) not null,
+`companyId` int not null
+  [42000-192]
